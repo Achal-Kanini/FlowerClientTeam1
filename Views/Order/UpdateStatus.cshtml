@@ -5,6 +5,16 @@
     ViewData["Title"] = "UpdateStatus";
 }
 
+<style>
+    body {
+        background-image: url('../../image/bg-image.jpg');
+        background-repeat: no-repeat;
+        background-position: center; /* Center the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+        background-attachment: fixed;
+    }
+</style>
+
 <h1>UpdateStatus</h1>
 
 <h4>OrderDetails</h4>
@@ -48,7 +58,7 @@
                 @Html.DropDownListFor(model => model.PaymentStatus, new List<SelectListItem>
                                 { new SelectListItem { Text = "Out for Delievery", Value = "Out for Delievery", Selected=true},
                                   new SelectListItem { Text = "Delievered", Value = "Delievered"},
-                                  new SelectListItem { Text = "Packaging in progress", Value = "Packaging in progress"},
+                                  new SelectListItem { Text = "Packaging", Value = "Packaging"},
                                   new SelectListItem { Text = "Dispatched", Value = "Dispatched"},
 
                                   }, "Select Status Type"
@@ -62,9 +72,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
