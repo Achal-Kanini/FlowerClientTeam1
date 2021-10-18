@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FlowerStore.ProjModel.OrderDetail>
+
+@{
+    ViewData["Title"] = "ViewOrders";
+}
+
+<h1>ViewOrders</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order number
+            </th>
+            <th>
+                Flower id
+            </th>
+
+
+            <th>
+                Total price
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                Order status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrderId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FlowerId)
+    </td>
+
+    <td>
+        &#8377; @Html.DisplayFor(modelItem => item.Totalprice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Remark)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PaymentStatus)
+    </td>
+    <td>
+        <a asp-action="UpdateStatus" asp-route-id="@item.OrderId"><button>Update Status</button></a>
+    </td>
+</tr>}
+    </tbody>
+</table>
