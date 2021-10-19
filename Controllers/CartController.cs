@@ -222,7 +222,7 @@ namespace FlowerClient.Controllers
             }
 
 
-            return RedirectToAction("ViewOrders", "Order");
+            return RedirectToAction("YourOrders", "Order");
         }
 
     }
