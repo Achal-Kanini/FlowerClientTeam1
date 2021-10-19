@@ -14,7 +14,8 @@ namespace FlowerStore.Controllers
     public class RegisterController : Controller
     {
         //string Baseurl = "https://localhost:44318/";
-        string Baseurl1 = "https://localhost:44327/";
+        //string Baseurl1 = "https://localhost:44327/";
+        string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
 
         public IActionResult Register()
         {
@@ -36,7 +37,8 @@ namespace FlowerStore.Controllers
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(cus), Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PostAsync("api/Customer/RegisterCustomer", content))
+                //using (var response = await httpClient.PostAsync("api/Customer/RegisterCustomer", content))
+                using (var response = await httpClient.PostAsync("RegisterCustomer", content))
                 {
                     int apiResponse = (int)response.StatusCode;
 

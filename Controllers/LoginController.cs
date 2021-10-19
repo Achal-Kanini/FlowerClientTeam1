@@ -19,7 +19,9 @@ namespace FlowerStore.Controllers
     public class LoginController : Controller
     {
         //string Baseurl = "https://localhost:44318/";
-        string Baseurl1 = "https://localhost:44327/";
+        //string Baseurl1 = "https://localhost:44327/";
+        string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
+
         string Baseurl2 = "https://localhost:44311/";
 
 
@@ -74,7 +76,8 @@ namespace FlowerStore.Controllers
                             //type = "User";
                             httpClient.BaseAddress = new Uri(Baseurl1);
 
-                            using (var response = await httpClient.GetAsync("api/Customer/CustomerLogin?tempPhone=" + cus.Phone + "&tempPass=" + cus.Password + "&tempType=" + cus.Vendor))
+                            //using (var response = await httpClient.GetAsync("api/Customer/CustomerLogin?tempPhone=" + cus.Phone + "&tempPass=" + cus.Password + "&tempType=" + cus.Vendor))
+                            using (var response = await httpClient.GetAsync("CustomerLogin?tempPhone=" + cus.Phone + "&tempPass=" + cus.Password + "&tempType=" + cus.Vendor))
                             {
                                 int apiResponse = (int)response.StatusCode;
 

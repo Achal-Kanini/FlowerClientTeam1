@@ -14,7 +14,8 @@ namespace FlowerStore.Controllers
     public class ManageProfController : Controller
     {
         //string Baseurl = "https://localhost:44318/";
-        string Baseurl1 = "https://localhost:44327/";
+        //string Baseurl1 = "https://localhost:44327/";
+        string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
 
         public async Task<IActionResult> ManageProf()
         {
@@ -37,7 +38,8 @@ namespace FlowerStore.Controllers
             {
                 httpClient.BaseAddress = new Uri(Baseurl1);
 
-                using (var response = await httpClient.GetAsync("api/Customer/CustomerbyId?id=" + id))
+                //using (var response = await httpClient.GetAsync("api/Customer/CustomerbyId?id=" + id))
+                using (var response = await httpClient.GetAsync("CustomerbyId?id=" + id))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     c1 = JsonConvert.DeserializeObject<Customer>(apiResponse);
@@ -58,7 +60,8 @@ namespace FlowerStore.Controllers
                 httpClient.BaseAddress = new Uri(Baseurl1);
                 
                 StringContent content1 = new StringContent(JsonConvert.SerializeObject(cus), Encoding.UTF8, "application/json");
-                using (var response = await httpClient.PutAsync("api/Customer/UpdateCustomer", content1))
+                //using (var response = await httpClient.PutAsync("api/Customer/UpdateCustomer", content1))
+                using (var response = await httpClient.PutAsync("UpdateCustomer", content1))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     ViewBag.Result = "Success";
