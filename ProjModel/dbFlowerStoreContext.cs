@@ -59,17 +59,23 @@ namespace FlowerStore.ProjModel
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Carts)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__Cart__Customer_I__18EBB532");
+                    .HasConstraintName("FK__Cart__Customer_I__3F466844");
 
                 entity.HasOne(d => d.Flower)
                     .WithMany(p => p.Carts)
                     .HasForeignKey(d => d.FlowerId)
-                    .HasConstraintName("FK__Cart__flower_id__19DFD96B");
+                    .HasConstraintName("FK__Cart__flower_id__403A8C7D");
             });
 
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.ToTable("Customer");
+
+                entity.HasIndex(e => e.Email, "UQ__Customer__AB6E6164554DC934")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Phone, "UQ__Customer__B43B145FFF5F51D3")
+                    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -133,7 +139,7 @@ namespace FlowerStore.ProjModel
             modelBuilder.Entity<Occasion>(entity =>
             {
                 entity.HasKey(e => e.OccId)
-                    .HasName("PK__occasion__BE0ACE5C696C0C23");
+                    .HasName("PK__occasion__BE0ACE5C159DFABC");
 
                 entity.ToTable("occasion");
 
@@ -150,7 +156,7 @@ namespace FlowerStore.ProjModel
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__orderDet__4659622990A8CA7E");
+                    .HasName("PK__orderDet__4659622905858D82");
 
                 entity.ToTable("orderDetails");
 
@@ -180,17 +186,17 @@ namespace FlowerStore.ProjModel
                 entity.HasOne(d => d.Cart)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.CartId)
-                    .HasConstraintName("FK__orderDeta__cart___208CD6FA");
+                    .HasConstraintName("FK__orderDeta__cart___45F365D3");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__orderDeta__custo__1F98B2C1");
+                    .HasConstraintName("FK__orderDeta__custo__44FF419A");
 
                 entity.HasOne(d => d.Flower)
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.FlowerId)
-                    .HasConstraintName("FK__orderDeta__flowe__1EA48E88");
+                    .HasConstraintName("FK__orderDeta__flowe__440B1D61");
             });
 
             OnModelCreatingPartial(modelBuilder);
