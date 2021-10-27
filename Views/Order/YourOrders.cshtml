@@ -23,9 +23,9 @@
             <th>
                 Order number
             </th>
-            @*<th>
-                Flower id
-            </th>*@
+            <th>
+                Date
+            </th>
 
 
             <th>
@@ -43,13 +43,15 @@
     <tbody>
         @foreach (var item in Model)
         {
+            var dateformatted = item.DateOfPlaced.Value.ToShortDateString();
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.OrderId)
     </td>
-    @*<td>
-        @Html.DisplayFor(modelItem => item.FlowerId)
-    </td>*@
+    <td>
+        @*@Html.DisplayFor(modelItem => item.DateOfPlaced.Value.Day)*@
+        @dateformatted
+    </td>
 
     <td>
         &#8377; @Html.DisplayFor(modelItem => item.Totalprice)

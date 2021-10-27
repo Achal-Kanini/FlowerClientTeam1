@@ -100,6 +100,11 @@ namespace FlowerStore.Controllers
 
                                     return RedirectToAction("Home", "Sitehome");
                                 }
+                                //else
+                                //{
+                                //    ViewBag.error = "**Wrong Details";
+                                //    return RedirectToAction("Login", "Login");
+                                //}
                             }
                         }
 
@@ -110,7 +115,8 @@ namespace FlowerStore.Controllers
             }
             catch (Exception ex)
             {
-                return View("Error", ex);
+                ViewBag.error = "**Wrong Credentials";
+                return View();
             } 
         }
 

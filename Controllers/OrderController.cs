@@ -101,6 +101,10 @@ namespace FlowerClient.Controllers
                     CartInfo = JsonConvert.DeserializeObject<List<OrderDetail>>(EmpResponse);
 
                 }
+                //foreach(var item in CartInfo)
+                //{
+                //    item.DateOfPlaced = 
+                //}
                 //returning the employee list to view  
                 return View(CartInfo);
             }

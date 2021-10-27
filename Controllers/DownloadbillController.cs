@@ -78,17 +78,21 @@ namespace FlowerStore.Controllers
 
                 XGraphics gfx = XGraphics.FromPdfPage(page);
 
+               
+
                 string ordernum = "Order number: " + ord.OrderId;
-                string flowerid = "Flower: " + ord.FlowerId;
+                string dateOrder = "Date: " + ord.DateOfPlaced;
+                
                 string total = "Total price: " + ord.Totalprice;
                 string remark = "Remark: " + ord.Remark;
                 string status = "Payment status: " + ord.PaymentStatus;
 
-                gfx.DrawString(ordernum, font, XBrushes.Black, 10, 30);
-                gfx.DrawString(flowerid, font, XBrushes.Black, 10, 65);
-                gfx.DrawString(total, font, XBrushes.Black, 10, 100);
-                gfx.DrawString(remark, font, XBrushes.Black, 10, 135);
-                gfx.DrawString(status, font, XBrushes.Black, 10, 170);
+                gfx.DrawString("FlowerBee", font, XBrushes.MediumPurple, 225, 30);
+                gfx.DrawString(ordernum, font, XBrushes.LimeGreen, 30, 80);
+                gfx.DrawString(dateOrder, font, XBrushes.LimeGreen, 30, 115);
+                gfx.DrawString(total, font, XBrushes.LimeGreen, 30, 150);
+                gfx.DrawString(remark, font, XBrushes.LimeGreen, 30, 185);
+                gfx.DrawString(status, font, XBrushes.LimeGreen, 30, 220);
 
                 document.Save(stream, false);
 
