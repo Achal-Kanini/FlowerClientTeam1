@@ -110,6 +110,8 @@ namespace FlowerClient.Controllers
         public async Task<ActionResult> UpdateStatus(int id)
         {
             OrderDetail fl = new OrderDetail();
+            ViewBag.Username = HttpContext.Session.GetString("Username");
+            ViewBag.Usertype = HttpContext.Session.GetString("Usertype");
 
             DateTime TokenExpiry = Convert.ToDateTime(HttpContext.Request.Cookies["Expiry"]);
             DateTime current = DateTime.Now;
@@ -134,7 +136,8 @@ namespace FlowerClient.Controllers
         public async Task<ActionResult> UpdateStatus(OrderDetail f)
         {
             OrderDetail o1 = new OrderDetail();
-
+            ViewBag.Username = HttpContext.Session.GetString("Username");
+            ViewBag.Usertype = HttpContext.Session.GetString("Usertype");
             DateTime TokenExpiry = Convert.ToDateTime(HttpContext.Request.Cookies["Expiry"]);
             DateTime current = DateTime.Now;
             // Console.WriteLine(TokenExpiry + "    expiray time   and current time " + current);

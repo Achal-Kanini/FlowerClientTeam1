@@ -19,11 +19,11 @@ namespace FlowerStore.Controllers
     public class LoginController : Controller
     {
         //string Baseurl = "https://localhost:44318/";
-        //string Baseurl1 = "https://localhost:44327/";
-        string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
+        string Baseurl1 = "https://localhost:44327/api/Customer/";
+        //string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
 
-        //string Baseurl2 = "https://localhost:44311/";
-        string Baseurl2 = "https://jwtteam1.azurewebsites.net";
+        string Baseurl2 = "https://localhost:44311/";
+        //string Baseurl2 = "https://jwtteam1.azurewebsites.net";
 
 
         private IJsonSerializer _serializer = new JsonNetSerializer();

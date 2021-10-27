@@ -14,8 +14,8 @@ namespace FlowerStore.Controllers
     public class RegisterController : Controller
     {
         //string Baseurl = "https://localhost:44318/";
-        //string Baseurl1 = "https://localhost:44327/";
-        string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
+        string Baseurl1 = "https://localhost:44327/api/Customer/";
+        //string Baseurl1 = "https://customerapiflower.azurewebsites.net/api/Customer/";
 
         public IActionResult Register()
         {
